@@ -7,6 +7,14 @@ if exists("g:autotag_vim_version_sourced")
    endif
 endif
 
+if !exists("g:autotag_filetype")
+   let g:autotag_filetype = [ 'ruby' ]
+endif
+
+if index(g:autotag_filetype, &filetype) < 0
+   finish
+endif
+
 let g:autotag_vim_version_sourced=s:autotag_vim_version
 
 " This file supplies automatic tag regeneration when saving files
